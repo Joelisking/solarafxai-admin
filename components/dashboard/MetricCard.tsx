@@ -14,13 +14,15 @@ type MetricCardProps = {
 
 const MetricCard = ({ label, value, sub }: MetricCardProps) => (
   <Card>
-    <CardHeader className="flex flex-row items-center justify-between pb-2">
-      <CardTitle className="text-sm font-semibold text-gray-900">
+    <CardHeader className="flex flex-row items-center justify-between pb-2 px-3 sm:px-6">
+      <CardTitle className="text-xs sm:text-sm font-semibold text-gray-900">
         {label}
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <div className="text-2xl font-bold text-black">{value}</div>
+      <div className="text-xl sm:text-2xl font-bold text-black">
+        {value}
+      </div>
       <div className="text-xs text-gray-500">{sub}</div>
     </CardContent>
   </Card>

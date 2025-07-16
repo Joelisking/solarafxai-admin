@@ -5,6 +5,14 @@ import {
   CardTitle,
   CardContent,
 } from '@/components/ui/card';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 
 const logs = [
   {
@@ -80,39 +88,49 @@ const logs = [
   // ...add more for up to 20
 ];
 
+const columns = [
+  { header: 'Timestamp', accessorKey: 'ts' },
+  { header: 'Endpoint', accessorKey: 'endpoint' },
+  { header: 'User ID', accessorKey: 'user' },
+  { header: 'Response', accessorKey: 'code' },
+  { header: 'Duration', accessorKey: 'duration' },
+];
+
 const RecentActivityLogPanel = () => (
-  <Card>
+  <Card className="mb-4 sm:mb-6">
     <CardHeader>
-      <CardTitle>Recent Activity Log</CardTitle>
+      <CardTitle className="text-base sm:text-lg">
+        Recent Activity Log
+      </CardTitle>
     </CardHeader>
     <CardContent className="overflow-x-auto">
-      <table className="w-full text-sm mb-2">
-        <thead>
-          <tr className="text-left text-gray-700">
-            <th>Timestamp</th>
-            <th>Endpoint</th>
-            <th>User ID</th>
-            <th>Response</th>
-            <th>Duration</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            {columns.map((column) => (
+              <TableHead key={column.accessorKey}>
+                {column.header}
+              </TableHead>
+            ))}
+          </TableRow>
+        </TableHeader>
+        <TableBody>
           {logs.map((l, i) => (
-            <tr key={i}>
-              <td>{l.ts}</td>
-              <td>{l.endpoint}</td>
-              <td>{l.user}</td>
-              <td
+            <TableRow key={i}>
+              <TableCell>{l.ts}</TableCell>
+              <TableCell>{l.endpoint}</TableCell>
+              <TableCell>{l.user}</TableCell>
+              <TableCell
                 className={
                   l.code >= 400 ? 'text-red-600 font-bold' : ''
                 }>
                 {l.code}
-              </td>
-              <td>{l.duration}</td>
-            </tr>
+              </TableCell>
+              <TableCell>{l.duration}</TableCell>
+            </TableRow>
           ))}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     </CardContent>
   </Card>
 );

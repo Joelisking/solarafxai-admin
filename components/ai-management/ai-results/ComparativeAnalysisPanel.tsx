@@ -15,19 +15,25 @@ import {
 } from '@/components/ui/table';
 
 const ComparativeAnalysisPanel = () => (
-  <Card className="mb-6">
+  <Card className="mb-4 sm:mb-6">
     <CardHeader>
-      <CardTitle>Comparative Analysis</CardTitle>
+      <CardTitle className="text-base sm:text-lg">
+        Comparative Analysis
+      </CardTitle>
     </CardHeader>
-    <CardContent className="flex flex-col gap-4">
-      <Table className="rounded-xl overflow-hidden">
-        <TableHeader className="bg-gray-100">
+    <CardContent className="flex flex-col gap-2 sm:gap-4">
+      <Table className="rounded-xl overflow-hidden text-xs sm:text-sm">
+        <TableHeader>
           <TableRow>
             <TableHead>Timestamp</TableHead>
             <TableHead>MainAI Result</TableHead>
             <TableHead>TriggerAI Result</TableHead>
-            <TableHead>Correlation</TableHead>
-            <TableHead>Conflict</TableHead>
+            <TableHead className="hidden lg:table-cell">
+              Correlation
+            </TableHead>
+            <TableHead className="hidden lg:table-cell">
+              Conflict
+            </TableHead>
             <TableHead>Combined Recommendation</TableHead>
           </TableRow>
         </TableHeader>
@@ -36,16 +42,22 @@ const ComparativeAnalysisPanel = () => (
             <TableCell>10:00</TableCell>
             <TableCell>Buy</TableCell>
             <TableCell>Buy</TableCell>
-            <TableCell>High</TableCell>
-            <TableCell>No</TableCell>
+            <TableCell className="hidden lg:table-cell">
+              High
+            </TableCell>
+            <TableCell className="hidden lg:table-cell">No</TableCell>
             <TableCell>Buy</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>09:30</TableCell>
             <TableCell>Sell</TableCell>
             <TableCell>Buy</TableCell>
-            <TableCell>Low</TableCell>
-            <TableCell>Yes</TableCell>
+            <TableCell className="hidden lg:table-cell">
+              Low
+            </TableCell>
+            <TableCell className="hidden lg:table-cell">
+              Yes
+            </TableCell>
             <TableCell>Hold</TableCell>
           </TableRow>
         </TableBody>

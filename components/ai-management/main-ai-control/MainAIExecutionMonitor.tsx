@@ -47,64 +47,76 @@ const chartConfig = {
 };
 
 const MainAIExecutionMonitor = () => (
-  <Card className="mb-6">
+  <Card className="mb-4 sm:mb-6">
     <CardHeader>
       <CardTitle>Execution Monitoring</CardTitle>
     </CardHeader>
-    <CardContent className="flex flex-col gap-6">
+    <CardContent className="flex flex-col gap-4 sm:gap-6">
       <div className="text-sm text-gray-700">Real-time Progress:</div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
-        <LineChart
-          data={progressData}
-          margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="step" />
-          <YAxis />
-          <Tooltip />
-          <Line
-            type="monotone"
-            dataKey="value"
-            stroke="#2563eb"
-            strokeWidth={2}
-            dot
-          />
-        </LineChart>
-      </ChartContainer>
+      <div className="w-full overflow-x-auto">
+        <ChartContainer
+          config={chartConfig}
+          className="h-32 min-w-[320px] w-full">
+          <LineChart
+            data={progressData}
+            margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="step" />
+            <YAxis />
+            <Tooltip />
+            <Line
+              type="monotone"
+              dataKey="value"
+              stroke="#2563eb"
+              strokeWidth={2}
+              dot
+            />
+          </LineChart>
+        </ChartContainer>
+      </div>
       <div className="text-sm text-gray-700">
         Execution History Timeline:
       </div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
-        <LineChart
-          data={perfData}
-          margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="time" />
-          <YAxis />
-          <Tooltip />
-          <Line
-            type="monotone"
-            dataKey="ms"
-            stroke="#22c55e"
-            strokeWidth={2}
-            dot
-          />
-        </LineChart>
-      </ChartContainer>
+      <div className="w-full overflow-x-auto">
+        <ChartContainer
+          config={chartConfig}
+          className="h-32 min-w-[320px] w-full">
+          <LineChart
+            data={perfData}
+            margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="time" />
+            <YAxis />
+            <Tooltip />
+            <Line
+              type="monotone"
+              dataKey="ms"
+              stroke="#22c55e"
+              strokeWidth={2}
+              dot
+            />
+          </LineChart>
+        </ChartContainer>
+      </div>
       <div className="text-sm text-gray-700">
         Resource Usage During Execution:
       </div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
-        <BarChart
-          data={resourceData}
-          margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="time" />
-          <YAxis />
-          <Tooltip />
-          <Bar dataKey="cpu" fill="#f59e42" />
-          <Bar dataKey="mem" fill="#a855f7" />
-        </BarChart>
-      </ChartContainer>
+      <div className="w-full overflow-x-auto">
+        <ChartContainer
+          config={chartConfig}
+          className="h-32 min-w-[320px] w-full">
+          <BarChart
+            data={resourceData}
+            margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="time" />
+            <YAxis />
+            <Tooltip />
+            <Bar dataKey="cpu" fill="#f59e42" />
+            <Bar dataKey="mem" fill="#a855f7" />
+          </BarChart>
+        </ChartContainer>
+      </div>
     </CardContent>
   </Card>
 );

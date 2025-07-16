@@ -6,13 +6,13 @@ import TriggerAIResultsDisplay from '@/components/ai-management/trigger-ai-contr
 
 function TriggerAIControl() {
   return (
-    <main className="p-8 bg-gray-50 min-h-screen flex flex-col gap-6">
+    <main className="px-2 sm:px-4 md:px-8 bg-gray-50 min-h-screen flex flex-col gap-4 md:gap-6">
       {/* Top: Control Panel + Config Panel */}
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="flex-1">
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-6">
+        <div className="flex-1 min-w-0">
           <TriggerAIControlPanel />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <TriggerAIConfigPanel />
         </div>
       </div>

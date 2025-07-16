@@ -50,7 +50,7 @@ function MarketDataRealtimePanel() {
         <div
           className="tradingview-widget-container w-full h-full"
           ref={container}
-          style={{ height: '100%' }}>
+          style={{ height: '100%', width: '100%' }}>
           <div
             className="tradingview-widget-container__widget h-full w-full"
             style={{ height: '100%', width: '100%' }}

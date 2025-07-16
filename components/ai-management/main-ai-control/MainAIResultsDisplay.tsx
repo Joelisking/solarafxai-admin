@@ -37,28 +37,30 @@ const MainAIResultsDisplay = () => (
       <div className="text-sm font-bold mt-4">
         Historical Comparison:
       </div>
-      <Table className="rounded-xl overflow-hidden">
-        <TableHeader className="bg-gray-100">
-          <TableRow>
-            <TableHead>Date</TableHead>
-            <TableHead>Signal</TableHead>
-            <TableHead>Result</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          <TableRow>
-            <TableCell>2024-06-09</TableCell>
-            <TableCell>Buy</TableCell>
-            <TableCell>+1.2%</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>2024-06-08</TableCell>
-            <TableCell>Sell</TableCell>
-            <TableCell>-0.5%</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-      <Button className="w-40">Download Report</Button>
+      <div className="w-full overflow-x-auto">
+        <Table className="rounded-xl overflow-hidden min-w-[320px] w-full">
+          <TableHeader className="bg-gray-100">
+            <TableRow>
+              <TableHead>Date</TableHead>
+              <TableHead>Signal</TableHead>
+              <TableHead>Result</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell>2024-06-09</TableCell>
+              <TableCell>Buy</TableCell>
+              <TableCell>+1.2%</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>2024-06-08</TableCell>
+              <TableCell>Sell</TableCell>
+              <TableCell>-0.5%</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </div>
+      <Button className="w-full sm:w-40">Download Report</Button>
     </CardContent>
   </Card>
 );

@@ -49,7 +49,9 @@ export default function Page({
           <div className="flex flex-1 items-center gap-2">
             <SidebarTrigger className="-ml-1 hover:bg-slate-100 rounded-md transition-colors" />
             <Separator orientation="vertical" className="mx-2 h-5" />
-            <DynamicBreadcrumb />
+            <div className="hidden md:block">
+              <DynamicBreadcrumb />
+            </div>
           </div>
 
           <div className="flex items-center gap-3">

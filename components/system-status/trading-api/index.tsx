@@ -7,22 +7,22 @@ import RecentActivityLogPanel from '@/components/system-status/trading-api/Recen
 
 function TradingAPIStatus() {
   return (
-    <main className="p-8 bg-gray-50 min-h-screen flex flex-col gap-6">
+    <main className="p-4 sm:p-6 md:p-8 bg-gray-50 min-h-screen flex flex-col gap-4 sm:gap-6">
       {/* Top: API Health + Database Status */}
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="flex-1">
+      <div className="flex flex-col xl:flex-row gap-4 sm:gap-6 w-full">
+        <div className="flex-1 w-full">
           <APIHealthPanel />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 w-full">
           <DatabaseStatusPanel />
         </div>
       </div>
       {/* Middle: Active Connections + API Usage Statistics */}
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="flex-1">
+      <div className="flex flex-col xl:flex-row gap-4 sm:gap-6 w-full">
+        <div className="flex-1 w-full">
           <ActiveConnectionsPanel />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 w-full">
           <APIUsageStatisticsPanel />
         </div>
       </div>

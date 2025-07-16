@@ -8,7 +8,7 @@ import {
 import { Button } from '@/components/ui/button';
 
 const MarketDataManagementPanel = () => (
-  <Card>
+  <Card className="mb-4 md:mb-6">
     <CardHeader>
       <CardTitle>Data Management Tools</CardTitle>
     </CardHeader>

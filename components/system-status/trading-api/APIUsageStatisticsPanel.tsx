@@ -5,6 +5,14 @@ import {
   CardTitle,
   CardContent,
 } from '@/components/ui/card';
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from '@/components/ui/table';
 
 const endpoints = [
   {
@@ -80,36 +88,38 @@ const endpoints = [
 ];
 
 const APIUsageStatisticsPanel = () => (
-  <Card className="mb-6">
+  <Card className="mb-4 sm:mb-6">
     <CardHeader>
-      <CardTitle>API Usage Statistics</CardTitle>
+      <CardTitle className="text-base sm:text-lg">
+        API Usage Statistics
+      </CardTitle>
     </CardHeader>
     <CardContent className="overflow-x-auto">
-      <table className="w-full text-sm mb-2">
-        <thead>
-          <tr className="text-left text-gray-700">
-            <th>Endpoint</th>
-            <th>Requests</th>
-            <th>Response</th>
-            <th>Errors</th>
-            <th>Rate Limit</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table className="text-xs sm:text-sm mb-2">
+        <TableHeader>
+          <TableRow>
+            <TableHead>Endpoint</TableHead>
+            <TableHead>Requests</TableHead>
+            <TableHead>Response</TableHead>
+            <TableHead>Errors</TableHead>
+            <TableHead>Rate Limit</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
           {endpoints.map((e) => (
-            <tr key={e.endpoint}>
-              <td>{e.endpoint}</td>
-              <td>{e.requests}</td>
-              <td>{e.response}</td>
-              <td
+            <TableRow key={e.endpoint}>
+              <TableCell>{e.endpoint}</TableCell>
+              <TableCell>{e.requests}</TableCell>
+              <TableCell>{e.response}</TableCell>
+              <TableCell
                 className={e.errors ? 'text-red-600 font-bold' : ''}>
                 {e.errors}
-              </td>
-              <td>{e.rateLimit}</td>
-            </tr>
+              </TableCell>
+              <TableCell>{e.rateLimit}</TableCell>
+            </TableRow>
           ))}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
     </CardContent>
   </Card>
 );

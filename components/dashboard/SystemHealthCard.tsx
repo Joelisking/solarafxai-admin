@@ -17,8 +17,8 @@ const SystemHealthCard = ({
   servers: ServerStatus[];
 }) => (
   <Card>
-    <CardHeader className="pb-2">
-      <CardTitle className="text-sm font-semibold text-gray-900">
+    <CardHeader className="pb-2 px-3 sm:px-6">
+      <CardTitle className="text-xs sm:text-sm font-semibold text-gray-900">
         System Health
       </CardTitle>
     </CardHeader>
@@ -35,7 +35,7 @@ const SystemHealthCard = ({
                   : 'bg-yellow-400'
               }`}
             />
-            <span className="text-sm text-gray-900 font-medium">
+            <span className="text-xs sm:text-sm text-gray-900 font-medium">
               {s.name}
             </span>
             <span

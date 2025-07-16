@@ -52,48 +52,102 @@ function NewsSourceManagementPanel() {
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>News Source Management</CardTitle>
+    <Card className="w-full">
+      <CardHeader className="pb-3 sm:pb-4">
+        <CardTitle className="text-lg sm:text-xl md:text-2xl">
+          News Source Management
+        </CardTitle>
       </CardHeader>
-      <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Source Name</TableHead>
-              <TableHead>Performance</TableHead>
-              <TableHead>Reliability</TableHead>
-              <TableHead>Activation</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {sources.map((s, i) => (
-              <TableRow key={s.name}>
-                <TableCell>{s.name}</TableCell>
-                <TableCell className="w-40">
+      <CardContent className="px-3 sm:px-4 md:px-6">
+        {/* Mobile Card View */}
+        <div className="block md:hidden space-y-4">
+          {sources.map((s, i) => (
+            <div
+              key={s.name}
+              className="border rounded-lg p-4 bg-white">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="font-medium text-lg">{s.name}</h3>
+                <Switch
+                  checked={s.active}
+                  onCheckedChange={() => toggleActive(i)}
+                />
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-sm text-gray-600">
+                      Performance:
+                    </span>
+                    <span className="text-sm font-medium">
+                      {s.performance}%
+                    </span>
+                  </div>
                   <Progress value={s.performance} className="h-2" />
-                  <span className="text-xs ml-2">
-                    {s.performance}%
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-600">
+                    Reliability:
                   </span>
-                </TableCell>
-                <TableCell>
                   <Badge
                     variant={
                       s.reliability > 85 ? 'default' : 'destructive'
-                    }>
+                    }
+                    className="text-xs">
                     {s.reliability}
                   </Badge>
-                </TableCell>
-                <TableCell>
-                  <Switch
-                    checked={s.active}
-                    onCheckedChange={() => toggleActive(i)}
-                  />
-                </TableCell>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Table View */}
+        <div className="hidden md:block overflow-x-auto">
+          <Table className="min-w-full">
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-1/4">Source Name</TableHead>
+                <TableHead className="w-2/5">Performance</TableHead>
+                <TableHead className="w-1/6">Reliability</TableHead>
+                <TableHead className="w-1/6">Activation</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {sources.map((s, i) => (
+                <TableRow key={s.name}>
+                  <TableCell className="font-medium">
+                    {s.name}
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex items-center space-x-2">
+                      <Progress
+                        value={s.performance}
+                        className="h-2 flex-1"
+                      />
+                      <span className="text-xs text-gray-500 min-w-fit">
+                        {s.performance}%
+                      </span>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <Badge
+                      variant={
+                        s.reliability > 85 ? 'default' : 'destructive'
+                      }>
+                      {s.reliability}
+                    </Badge>
+                  </TableCell>
+                  <TableCell>
+                    <Switch
+                      checked={s.active}
+                      onCheckedChange={() => toggleActive(i)}
+                    />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </CardContent>
     </Card>
   );

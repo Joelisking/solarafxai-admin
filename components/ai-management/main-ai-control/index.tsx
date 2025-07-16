@@ -6,13 +6,13 @@ import MainAIResultsDisplay from '@/components/ai-management/main-ai-control/Mai
 
 function MainAIControl() {
   return (
-    <main className="p-8 bg-gray-50 min-h-screen flex flex-col gap-6">
+    <main className="p-4 sm:p-6 md:p-8 bg-gray-50 min-h-screen flex flex-col gap-4 sm:gap-6">
       {/* Top: Control Panel + Config Panel */}
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="flex-1">
+      <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
+        <div className="flex-1 min-w-0">
           <MainAIControlPanel />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 min-w-0 mt-4 md:mt-0">
           <MainAIConfigPanel />
         </div>
       </div>

@@ -22,7 +22,7 @@ const qualityData = [
 ];
 
 const MarketDataQualityPanel = () => (
-  <Card className="mb-6">
+  <Card className="mb-4 md:mb-6">
     <CardHeader>
       <CardTitle>Data Quality Monitoring</CardTitle>
     </CardHeader>

@@ -13,10 +13,14 @@ const NewsFetcherControl = () => (
       <CardTitle>News Fetcher Control</CardTitle>
     </CardHeader>
     <CardContent>
-      <div className="flex items-center gap-2 mb-2">
-        <span className="h-3 w-3 rounded-full bg-destructive inline-block" />
-        <span className="font-semibold text-gray-900">Stopped</span>
-        <Button className="ml-auto">Start</Button>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+        <div className="flex items-center gap-2">
+          <span className="h-3 w-3 rounded-full bg-destructive inline-block" />
+          <span className="font-semibold text-gray-900">Stopped</span>
+        </div>
+        <Button className="sm:ml-auto w-full sm:w-auto mt-2 sm:mt-0">
+          Start
+        </Button>
       </div>
       <div className="mb-2 text-sm text-gray-700">
         Query: gold price news
@@ -30,7 +34,7 @@ const NewsFetcherControl = () => (
         Last Fetch: 5 min ago
       </div>
       <div className="flex flex-wrap gap-2 mt-2">
-        <Button>Manual Fetch</Button>
+        <Button className="w-full sm:w-auto">Manual Fetch</Button>
       </div>
     </CardContent>
   </Card>

@@ -49,15 +49,19 @@ const chartConfig = {
 };
 
 const PerformanceAnalyticsPanel = () => (
-  <Card className="mb-6">
+  <Card className="mb-4 sm:mb-6">
     <CardHeader>
-      <CardTitle>Performance Analytics</CardTitle>
+      <CardTitle className="text-base sm:text-lg">
+        Performance Analytics
+      </CardTitle>
     </CardHeader>
-    <CardContent className="flex flex-col gap-6">
-      <div className="text-sm text-gray-700">
+    <CardContent className="flex flex-col gap-4 sm:gap-6">
+      <div className="text-xs sm:text-sm text-gray-700">
         Accuracy Tracking Over Time:
       </div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
+      <ChartContainer
+        config={chartConfig}
+        className="h-28 sm:h-32 w-full">
         <LineChart
           data={accuracyData}
           margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
@@ -74,10 +78,12 @@ const PerformanceAnalyticsPanel = () => (
           />
         </LineChart>
       </ChartContainer>
-      <div className="text-sm text-gray-700">
+      <div className="text-xs sm:text-sm text-gray-700">
         Signal Strength Analysis:
       </div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
+      <ChartContainer
+        config={chartConfig}
+        className="h-28 sm:h-32 w-full">
         <BarChart
           data={signalData}
           margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
@@ -88,10 +94,12 @@ const PerformanceAnalyticsPanel = () => (
           <Bar dataKey="strength" fill="#22c55e" />
         </BarChart>
       </ChartContainer>
-      <div className="text-sm text-gray-700">
+      <div className="text-xs sm:text-sm text-gray-700">
         ROI Impact Measurement:
       </div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
+      <ChartContainer
+        config={chartConfig}
+        className="h-28 sm:h-32 w-full">
         <LineChart
           data={roiData}
           margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>

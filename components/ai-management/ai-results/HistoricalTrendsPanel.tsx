@@ -62,13 +62,17 @@ const chartConfig = {
 const HistoricalTrendsPanel = () => (
   <Card>
     <CardHeader>
-      <CardTitle>Historical Trends</CardTitle>
+      <CardTitle className="text-base sm:text-lg">
+        Historical Trends
+      </CardTitle>
     </CardHeader>
-    <CardContent className="flex flex-col gap-6">
-      <div className="text-sm text-gray-700">
+    <CardContent className="flex flex-col gap-4 sm:gap-6">
+      <div className="text-xs sm:text-sm text-gray-700">
         Long-term Performance:
       </div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
+      <ChartContainer
+        config={chartConfig}
+        className="h-28 sm:h-32 w-full">
         <LineChart
           data={longTermData}
           margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
@@ -85,10 +89,12 @@ const HistoricalTrendsPanel = () => (
           />
         </LineChart>
       </ChartContainer>
-      <div className="text-sm text-gray-700">
+      <div className="text-xs sm:text-sm text-gray-700">
         Pattern Recognition:
       </div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
+      <ChartContainer
+        config={chartConfig}
+        className="h-28 sm:h-32 w-full">
         <AreaChart
           data={patternData}
           margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
@@ -104,8 +110,12 @@ const HistoricalTrendsPanel = () => (
           />
         </AreaChart>
       </ChartContainer>
-      <div className="text-sm text-gray-700">Seasonal Analysis:</div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
+      <div className="text-xs sm:text-sm text-gray-700">
+        Seasonal Analysis:
+      </div>
+      <ChartContainer
+        config={chartConfig}
+        className="h-28 sm:h-32 w-full">
         <BarChart
           data={seasonalData}
           margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
@@ -116,10 +126,12 @@ const HistoricalTrendsPanel = () => (
           <Bar dataKey="acc" fill="#f59e42" />
         </BarChart>
       </ChartContainer>
-      <div className="text-sm text-gray-700">
+      <div className="text-xs sm:text-sm text-gray-700">
         Predictive Accuracy Trends:
       </div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
+      <ChartContainer
+        config={chartConfig}
+        className="h-28 sm:h-32 w-full">
         <LineChart
           data={predictiveData}
           margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>

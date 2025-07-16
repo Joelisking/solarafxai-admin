@@ -45,13 +45,16 @@ const chartConfig = {
 };
 
 const TriggerAIExecutionMonitor = () => (
-  <Card className="mb-6">
+  <Card className="mb-4 md:mb-6">
     <CardHeader>
       <CardTitle>Execution Monitoring</CardTitle>
     </CardHeader>
-    <CardContent className="flex flex-col gap-6">
+    <CardContent className="flex flex-col gap-3 md:gap-6">
       <div className="text-sm text-gray-700">Real-time Progress:</div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
+      <ChartContainer
+        config={chartConfig}
+        className="h-32 w-full"
+        style={{ minWidth: 0 }}>
         <LineChart
           data={progressData}
           margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
@@ -71,7 +74,10 @@ const TriggerAIExecutionMonitor = () => (
       <div className="text-sm text-gray-700">
         Detection History Timeline:
       </div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
+      <ChartContainer
+        config={chartConfig}
+        className="h-32 w-full"
+        style={{ minWidth: 0 }}>
         <LineChart
           data={perfData}
           margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
@@ -91,7 +97,10 @@ const TriggerAIExecutionMonitor = () => (
       <div className="text-sm text-gray-700">
         Response Time Optimization:
       </div>
-      <ChartContainer config={chartConfig} className="h-32 w-full">
+      <ChartContainer
+        config={chartConfig}
+        className="h-32 w-full"
+        style={{ minWidth: 0 }}>
         <BarChart
           data={responseData}
           margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>

@@ -13,7 +13,7 @@ const MarketDataOverview = () => (
     </CardHeader>
     <CardContent>
       <div className="overflow-x-auto">
-        <table className="w-full text-sm mb-4">
+        <table className="w-full text-xs sm:text-sm mb-4">
           <thead>
             <tr className="text-left text-gray-700">
               <th>Timeframe</th>
@@ -62,8 +62,8 @@ const MarketDataOverview = () => (
           </tbody>
         </table>
       </div>
-      <div className="flex items-center gap-4 mb-2">
-        <div className="text-sm text-gray-700">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-2">
+        <div className="text-xs sm:text-sm text-gray-700">
           Latest Price:{' '}
           <span className="font-bold text-green-600">$2,350.10</span>{' '}
           <span className="ml-2 text-xs text-green-600">▲ +0.5%</span>

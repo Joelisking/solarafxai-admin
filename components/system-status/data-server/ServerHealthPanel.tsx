@@ -11,8 +11,8 @@ const ServerHealthPanel = () => (
     <CardHeader>
       <CardTitle>Server Health</CardTitle>
     </CardHeader>
-    <CardContent className="flex gap-8 items-center">
-      <div className="flex items-center gap-2">
+    <CardContent className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-8 items-start sm:items-center">
+      <div className="flex items-center gap-2 mb-2 sm:mb-0">
         <span className="h-3 w-3 rounded-full bg-green-500 inline-block" />
         <span className="font-semibold text-gray-900">Connected</span>
       </div>

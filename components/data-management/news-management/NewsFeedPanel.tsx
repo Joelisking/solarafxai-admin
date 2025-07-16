@@ -81,61 +81,138 @@ function NewsFeedPanel() {
   );
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>News Feed Interface</CardTitle>
+    <Card className="w-full">
+      <CardHeader className="pb-3 sm:pb-4">
+        <CardTitle className="text-lg sm:text-xl md:text-2xl">
+          News Feed Interface
+        </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-3 sm:px-4 md:px-6">
         <div className="mb-4">
           <Input
             placeholder="Filter by title..."
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            className="w-64"
+            className="w-full max-w-xs sm:max-w-sm md:max-w-md"
           />
         </div>
         {loading ? (
-          <div className="text-gray-500">Loading...</div>
+          <div className="text-gray-500 py-8 text-center">
+            Loading...
+          </div>
         ) : (
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Title</TableHead>
-                <TableHead>Sentiment</TableHead>
-                <TableHead>Relevance</TableHead>
-                <TableHead>Source Credibility</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
+          <div className="w-full">
+            {/* Mobile Card View */}
+            <div className="block md:hidden space-y-4">
               {filtered.map((a, i) => (
-                <TableRow key={i}>
-                  <TableCell>
-                    <Link
-                      href={a.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline text-blue-500">
+                <div
+                  key={i}
+                  className="border rounded-lg p-4 bg-white">
+                  <Link
+                    href={a.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block mb-3">
+                    <h3 className="font-medium text-blue-600 hover:text-blue-800 line-clamp-2">
                       {a.title}
-                    </Link>
-                  </TableCell>
-                  <TableCell>
-                    <Badge className={sentimentColor[a.sentiment]}>
-                      {a.sentiment}
-                    </Badge>
-                  </TableCell>
-                  <TableCell className="w-40">
-                    <Progress value={a.relevance} className="h-2" />
-                    <span className="text-xs ml-2">
-                      {a.relevance}%
-                    </span>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="outline">{a.credibility}</Badge>
-                  </TableCell>
-                </TableRow>
+                    </h3>
+                  </Link>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-600">
+                        Sentiment:
+                      </span>
+                      <Badge
+                        className={sentimentColor[a.sentiment]}
+                        variant="secondary">
+                        {a.sentiment}
+                      </Badge>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-600">
+                        Relevance:
+                      </span>
+                      <div className="flex items-center space-x-2 flex-1 max-w-24">
+                        <Progress
+                          value={a.relevance}
+                          className="h-2"
+                        />
+                        <span className="text-xs text-gray-500 min-w-fit">
+                          {a.relevance}%
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-600">
+                        Credibility:
+                      </span>
+                      <Badge variant="outline">{a.credibility}</Badge>
+                    </div>
+                  </div>
+                </div>
               ))}
-            </TableBody>
-          </Table>
+            </div>
+
+            {/* Desktop Table View */}
+            <div className="hidden md:block overflow-x-auto">
+              <Table className="min-w-full">
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-2/5 lg:w-1/2">
+                      Title
+                    </TableHead>
+                    <TableHead className="w-1/6 lg:w-1/8">
+                      Sentiment
+                    </TableHead>
+                    <TableHead className="w-1/4 lg:w-1/4">
+                      Relevance
+                    </TableHead>
+                    <TableHead className="w-1/6 lg:w-1/8">
+                      Credibility
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {filtered.map((a, i) => (
+                    <TableRow key={i}>
+                      <TableCell className="max-w-0">
+                        <Link
+                          href={a.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 hover:underline block truncate">
+                          {a.title}
+                        </Link>
+                      </TableCell>
+                      <TableCell>
+                        <Badge
+                          className={sentimentColor[a.sentiment]}
+                          variant="secondary">
+                          {a.sentiment}
+                        </Badge>
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex items-center space-x-2">
+                          <Progress
+                            value={a.relevance}
+                            className="h-2 flex-1"
+                          />
+                          <span className="text-xs text-gray-500 min-w-fit">
+                            {a.relevance}%
+                          </span>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="outline">
+                          {a.credibility}
+                        </Badge>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </div>
         )}
       </CardContent>
     </Card>

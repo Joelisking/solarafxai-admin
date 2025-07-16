@@ -5,7 +5,7 @@ import HistoricalTrendsPanel from '@/components/ai-management/ai-results/Histori
 
 function AIResults() {
   return (
-    <main className="p-8 bg-gray-50 min-h-screen flex flex-col gap-6">
+    <main className="px-2 py-4 sm:p-8 bg-gray-50 min-h-screen flex flex-col gap-4 sm:gap-6">
       <ComparativeAnalysisPanel />
       <PerformanceAnalyticsPanel />
       <HistoricalTrendsPanel />
