@@ -1,11 +1,1 @@
-import React from 'react';
-
-function Dashboard() {
-  return (
-    <main>
-      <h1>Dashboard</h1>
-    </main>
-  );
-}
-
-export default Dashboard;
+export { default } from '@/components/dashboard';

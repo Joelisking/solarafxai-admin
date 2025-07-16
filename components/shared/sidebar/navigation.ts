@@ -30,39 +30,23 @@ export const ROUTES: Route[] = [
         title: 'Dashboard',
         icon: 'LayoutDashboard',
         url: '/dashboard',
-        //    isActive: false,
-        // items: [
-        //   {
-        //     title: 'Dashboard',
-        //     url: '/accounts/dashboard',
-        //   },
-        //   {
-        //     title: 'Fund Management',
-        //     url: '/accounts/fund-management',
-        //   },
-        //   {
-        //     title: 'Deep Learning Signals',
-        //     url: '/accounts/signals',
-        //   },
-        // ],
       },
       {
         title: 'System Status',
         icon: 'Server',
         url: '/system-status',
-        //    isActive: false,
         items: [
           {
             title: 'Data Server',
-            url: '/data-server',
+            url: '/system-status/data-server',
           },
           {
             title: 'AI Server',
-            url: '/ai-server',
+            url: '/system-status/ai-server',
           },
           {
             title: 'Trading API',
-            url: '/trading-api',
+            url: '/system-status/trading-api',
           },
         ],
       },
@@ -77,15 +61,15 @@ export const ROUTES: Route[] = [
         items: [
           {
             title: 'Main AI Control',
-            url: '/main-ai-control',
+            url: '/ai-management/main-ai-control',
           },
           {
             title: 'Trigger AI Control',
-            url: '/trigger-ai-control',
+            url: '/ai-management/trigger-ai-control',
           },
           {
             title: 'AI Results',
-            url: '/ai-results',
+            url: '/ai-management/ai-results',
           },
         ],
       },
@@ -95,15 +79,15 @@ export const ROUTES: Route[] = [
         items: [
           {
             title: 'Market Data',
-            url: '/market-data',
+            url: '/data-management/market-data',
           },
           {
             title: 'News Management',
-            url: '/news-management',
+            url: '/data-management/news-management',
           },
           {
             title: 'Data Sources',
-            url: '/data-sources',
+            url: '/data-management/data-sources',
           },
         ],
       },
@@ -113,15 +97,15 @@ export const ROUTES: Route[] = [
         items: [
           {
             title: 'Live Trades',
-            url: '/live-trades',
+            url: '/trading-operations/live-trades',
           },
           {
             title: 'Trade History',
-            url: '/trade-history',
+            url: '/trading-operations/trade-history',
           },
           {
             title: 'P&L Analytics',
-            url: '/pnl-analytics',
+            url: '/trading-operations/pnl-analytics',
           },
         ],
       },
@@ -136,15 +120,15 @@ export const ROUTES: Route[] = [
         items: [
           {
             title: 'User Accounts',
-            url: '/user-accounts',
+            url: '/user-management/user-accounts',
           },
           {
             title: 'MT5 Configurations',
-            url: '/mt5-configurations',
+            url: '/user-management/mt5-configurations',
           },
           {
             title: 'Risk Settings',
-            url: '/risk-settings',
+            url: '/user-management/risk-settings',
           },
         ],
       },
@@ -164,15 +148,15 @@ export const ROUTES: Route[] = [
         items: [
           {
             title: 'Configuration',
-            url: '/configuration',
+            url: '/system-tools/configuration',
           },
           {
             title: 'Maintenance',
-            url: '/maintenance',
+            url: '/system-tools/maintenance',
           },
           {
             title: 'Logs',
-            url: '/logs',
+            url: '/system-tools/logs',
           },
         ],
       },
